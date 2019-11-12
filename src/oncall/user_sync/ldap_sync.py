@@ -133,6 +133,11 @@ def fetch_ldap():
             mail = ldap_dict.get(LDAP_SETTINGS['attrs']['mail'])
             name = ldap_dict.get(LDAP_SETTINGS['attrs']['full_name'])[0]
 
+            try:
+                phone = LDAP_SETTINGS['attrs']['telephoneNumber']
+            except KeyError:
+                phone = mobile
+
             if mobile:
                 try:
                     mobile = normalize_phone_number(mobile[0])
@@ -141,10 +146,18 @@ def fetch_ldap():
                 except UnicodeEncodeError:
                     mobile = None
 
+            if phone:
+                try:
+                    phone = normalize_phone_number(phone[0])
+                except NumberParseException:
+                    phone = None
+                except UnicodeEncodeError:
+                    phone = None
+
             if mail:
                 mail = mail[0]
 
-            contacts = {'call': mobile, 'sms': mobile, 'email': mail, 'slack': username, 'name': name}
+            contacts = {'call': phone, 'sms': mobile, 'email': mail, 'slack': username, 'name': name}
             dn_map[dn] = username
             users[username] = contacts
 
