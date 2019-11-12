@@ -385,7 +385,7 @@ class Scheduler(object):
         if start_dt > handoff:
             start_epoch += timedelta(weeks=period)
             handoff += timedelta(weeks=period)
-        if handoff < utc.localize(datetime.utcnow()):
+        if False and handoff < utc.localize(datetime.utcnow()):
             cursor.execute("DROP TEMPORARY TABLE IF EXISTS `temp_event`")
             connection.commit()
             raise HTTPBadRequest('Invalid populate/preview request', 'cannot populate/preview starting in the past')
