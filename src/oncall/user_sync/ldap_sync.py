@@ -114,6 +114,10 @@ def fetch_ldap():
         rtype, rdata, rmsgid, serverctrls = l.result3(msgid, resp_ctrl_classes=known_ldap_resp_ctrls)
         logger.info('Loaded %d entries from ldap.' % len(rdata))
         for dn, ldap_dict in rdata:
+            if dn is None:
+                logger.info('Skipping: %s' % ldap_dict)
+                continue
+
             if LDAP_SETTINGS['attrs']['mail'] not in ldap_dict:
                 logger.error('ERROR: invalid ldap entry for dn: %s' % dn)
                 continue
@@ -139,11 +143,8 @@ def fetch_ldap():
 
             if mail:
                 mail = mail[0]
-                slack = mail.split('@')[0]
-            else:
-                slack = None
 
-            contacts = {'call': mobile, 'sms': mobile, 'email': mail, 'slack': slack, 'name': name}
+            contacts = {'call': mobile, 'sms': mobile, 'email': mail, 'slack': username, 'name': name}
             dn_map[dn] = username
             users[username] = contacts
 

@@ -327,7 +327,7 @@
         {% endraw %} {% if slack_instance %} {% raw %}
         <h4>
           {{#if slack_channel}}
-            <a href="https://{% endraw %}{{slack_instance}}{% raw %}.slack.com/messages/{{stripHash slack_channel}}/" target="_blank">{{slack_channel}}</a>
+            <a href="https://{% endraw %}{{slack_instance}}{% raw %}.slack.com/channels/{{stripHash slack_channel}}/" target="_blank">{{slack_channel}}</a>
           {{else}}
             No Slack Channel
           {{/if}}
@@ -515,7 +515,7 @@
             <a href="tel:{{getUserInfo this @root.users 'contacts.sms'}}"> {{getUserInfo this @root.users 'contacts.sms'}} </a>
           {{/isEqual}}
         </li>
-        <li> Slack: <a>{{getUserInfo this @root.users 'contacts.slack'}}</a> </li>
+        <li> Slack: <a href="https://{% endraw %}{{slack_instance}}{% raw %}.slack.com/channels/{{getUserInfo this @root.users 'contacts.slack'}}" target="_blank">{{getUserInfo this @root.users 'contacts.slack'}}</a> </li>
         <li> E-Mail: <a target="_blank" href="mailto:{{getUserInfo this @root.users 'contacts.email'}}"> {{getUserInfo this @root.users 'contacts.email'}} </a> </li>
       </ul>
     </div>
@@ -568,7 +568,7 @@
             <ul class="card-inner-extra light small">
               <li> Call: {{#if user_contacts.call}} <a href="tel:{{user_contacts.call}}"> {{user_contacts.call}} </a> {{else}} <span class="error-text">No number found!</span> {{/if}} </li>
               <li> SMS: {{#if user_contacts.sms}} <a href="tel:{{user_contacts.sms}}"> {{user_contacts.sms}} </a> {{else}} <span class="error-text">No number found!</span> {{/if}} </li>
-              <li> Slack: <a>{{user_contacts.slack}}</a> </li>
+              <li> Slack: <a href="https://{% endraw %}{{slack_instance}}{% raw %}.slack.com/channels/{{user_contacts.slack}}" target="_blank">{{user_contacts.slack}}</a> </li>
               <li> E-Mail: <a target="_blank" href="mailto:{{user_contacts.email}}"> {{user_contacts.email}} </a> </li>
             </ul>
             <ul class="border-top card-content">
