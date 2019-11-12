@@ -256,7 +256,7 @@
             </tr>
           {{/each}}
         </table>
-      </div> 
+      </div>
       {{else}}
         <ul class="search-module">
           <h4>No users found</h4>
@@ -270,24 +270,28 @@
 <!--// landing teams partial -->
 <script id="landing-teams-inner-template" type="text/x-handlebars-template">
   <ul class="card-inner-wrapper">
-    {{#ifNotEmpty data.current.primary}}
-      <span class="subheading light">On Call Now</span>
-      <li class="card-inner border-bottom" data-card-name="{{data.current.primary.0.full_name}}">
-        <img class="card-picture" src="{{defaultPhoto data.current.primary.0.photo_url}}" alt="{{data.current.primary.0.full_name}}">
-        <h4><strong><a class="landing-teams-name" target="_blank" href="mailto:{{data.current.primary.0.user_contacts.email}}">{{data.current.primary.0.full_name}}</a></strong> <span class="badge pull-right" data-role="{{data.current.primary.0.role}}">{{data.current.primary.0.role}}</span></h4>
-
-        {{#if data.current.primary.0.user_contacts.call}}
-          <span class="light"><a href="tel:{{data.current.primary.0.user_contacts.call}}">{{data.current.primary.0.user_contacts.call}}</a></span>
-        {{else}}
-          <span class="error-text">No phone number found!</span>
-        {{/if}}
-        <ul class="border-top card-content">
-          <li class="small light">{{convertUnixTime data.current.primary.0.start}} - {{convertUnixTime data.current.primary.0.end}}</li>
-        </ul>
-      </li>
-    {{else}}
+    {{#isEqual data.current.length 0}}
       <div style="text-align:center;">No on call data found</div>
-    {{/ifNotEmpty}}
+    {{else}}
+      <span class="subheading light">On Call Now</span>
+      {{#each data.current}}
+        {{#ifNotEmpty this}}
+        <li class="card-inner border-bottom" data-card-name="{{this.0.full_name}}">
+          <img class="card-picture" src="{{defaultPhoto this.0.photo_url}}" alt="{{this.0.full_name}}">
+          <h4><strong><a class="landing-teams-name" target="_blank" href="mailto:{{this.0.user_contacts.email}}">{{this.0.full_name}}</a></strong> <span class="badge pull-right" data-role="{{this.0.role}}">{{this.0.role}}</span></h4>
+
+          {{#if this.0.user_contacts.call}}
+            <span class="light"><a href="tel:{{this.0.user_contacts.call}}">{{this.0.user_contacts.call}}</a></span>
+          {{else}}
+            <span class="error-text">No phone number found!</span>
+          {{/if}}
+          <ul class="border-top card-content">
+            <li class="small light">{{convertUnixTime this.0.start}} - {{convertUnixTime this.0.end}}</li>
+          </ul>
+        </li>
+        {{/ifNotEmpty}}
+      {{/each}}
+    {{/isEqual}}
   </ul>
 </script>
 
@@ -555,7 +559,7 @@
       {{#if oncallNow}}
         {{#each oncallNow}}
           {{#each this}}
-          <li class="card-inner card-inner-slim border-bottom" data-card-name="{{full_name}}" data-collapsed="{{#ifExists collapsed}}{{collapsed}}{{else}}true{{/ifExists}}">
+          <li class="card-inner card-inner-slim border-bottom" data-card-name="{{full_name}}" data-collapsed="{{#ifExists collapsed}}false{{else}}false{{/ifExists}}">
             <img class="card-picture-small" src="{{defaultPhoto photo_url}}" alt="{{full_name}}">
             <span class="card-inner-user">
               <strong>{{full_name}}</strong>

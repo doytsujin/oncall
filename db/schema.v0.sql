@@ -134,9 +134,9 @@ CREATE TABLE IF NOT EXISTS `role` (
   UNIQUE INDEX `name_unique` (`name` ASC));
 
 INSERT INTO `role` (`name`, `display_order`)
-VALUES ('primary', 1),
-       ('secondary', 2),
-       ('shadow', 3),
+VALUES ('MOOPS1', 1),
+       ('MOOPS2', 2),
+       ('Community', 3),
        ('manager', 4),
        ('vacation', 5),
        ('unavailable', 6);

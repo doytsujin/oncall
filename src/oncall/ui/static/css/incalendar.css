@@ -205,17 +205,17 @@
   display: inline;
 }
 
-.inc-calendar .inc-event[data-type="primary"] {
+.inc-calendar .inc-event[data-type="MOOPS1"] {
   top: 18px;
 }
 
-.inc-calendar .inc-event[data-type="secondary"] {
+.inc-calendar .inc-event[data-type="MOOPS2"] {
   background: #E6E6FF;
   color: #2C2B9D;
   border-color: #B2B0FA;
 }
 
-.inc-calendar .inc-event[data-type="shadow"] {
+.inc-calendar .inc-event[data-type="Commuinity"] {
   background: #E1E9EE;
   color: #283E4A;
   border-color: #ACB9C2;
@@ -239,8 +239,8 @@
   border-color: #FF91CF;
 }
 
-.inc-calendar .inc-event[data-type="primary"][data-force-highlighted="true"],
-.inc-calendar .inc-event[data-type="primary"][data-highlighted="true"] {
+.inc-calendar .inc-event[data-type="MOOPS1"][data-force-highlighted="true"],
+.inc-calendar .inc-event[data-type="MOOPS1"][data-highlighted="true"] {
   background: #EF7E37;
   border-color: #993A00;
   color: rgba(255,255,255,.9);
@@ -253,15 +253,15 @@
   color: rgba(255,255,255,.9);
 }
 
-.inc-calendar .inc-event[data-type="secondary"][data-force-highlighted="true"],
-.inc-calendar .inc-event[data-type="secondary"][data-highlighted="true"] {
+.inc-calendar .inc-event[data-type="MOOPS2"][data-force-highlighted="true"],
+.inc-calendar .inc-event[data-type="MOOPS2"][data-highlighted="true"] {
   background: #827BE9;
   border-color: #544BC2;
   color: rgba(255,255,255,.9);
 }
 
-.inc-calendar .inc-event[data-type="shadow"][data-force-highlighted="true"],
-.inc-calendar .inc-event[data-type="shadow"][data-highlighted="true"] {
+.inc-calendar .inc-event[data-type="Community"][data-force-highlighted="true"],
+.inc-calendar .inc-event[data-type="Community"][data-highlighted="true"] {
   background: #7A8B98;
   border-color: #485D69;
   color: rgba(255,255,255,.9);
@@ -335,15 +335,15 @@
   margin-left: 30px;
 }
 
-.inc-modal[data-role="primary"] .inc-event-details {
+.inc-modal[data-role="MOOPS1"] .inc-event-details {
   border-color: #F6A16C;
 }
 
-.inc-modal[data-role="secondary"] .inc-event-details {
+.inc-modal[data-role="MOOPS2"] .inc-event-details {
   border-color: #B2B0FA;
 }
 
-.inc-modal[data-role="shadow"] .inc-event-details {
+.inc-modal[data-role="Community"] .inc-event-details {
   border-color: #ACB9C2;
 }
 
@@ -514,8 +514,8 @@
   margin-top: 3px;
 }
 
-#inc-override-event-list [data-type="primary"],
-.inc-event-details-swap [data-type="primary"] {
+#inc-override-event-list [data-type="MOOPS1"],
+.inc-event-details-swap [data-type="MOOPS1"] {
   color: #F6A16C;
 }
 
@@ -524,13 +524,13 @@
   color: #65C3E8;
 }
 
-#inc-override-event-list [data-type="secondary"],
-.inc-event-details-swap [data-type="secondary"] {
+#inc-override-event-list [data-type="MOOPS2"],
+.inc-event-details-swap [data-type="MOOPS2"] {
   color: #B2B0FA;
 }
 
-#inc-override-event-list [data-type="shadow"],
-.inc-event-details-swap [data-type="shadow"] {
+#inc-override-event-list [data-type="Community"],
+.inc-event-details-swap [data-type="Community"] {
   color: #ACB9C2;
 }
 

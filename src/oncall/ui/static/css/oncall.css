@@ -819,15 +819,15 @@ body[data-authenticated="false"] #pinned-teams {
   top: 2px;
 }
 
-.calendar-types .color-swatch[data-type="primary"] {
+.calendar-types .color-swatch[data-type="MOOPS1"] {
   background: #F6A16C;
 }
 
-.calendar-types .color-swatch[data-type="secondary"] {
+.calendar-types .color-swatch[data-type="MOOPS2"] {
   background: #B2B0FA;
 }
 
-.calendar-types .color-swatch[data-type="shadow"] {
+.calendar-types .color-swatch[data-type="Community"] {
   background: #ACB9C2;
 }
 
@@ -1022,11 +1022,11 @@ div[data-admin="false"] .team-info .toggle-rotation {
   border-bottom: 5px solid #FDE3D2;
 }
 
-.module-schedule-create[data-role="secondary"] .border-bottom {
+.module-schedule-create[data-role="MOOPS2"] .border-bottom {
   border-color: #E6E6FF;
 }
 
-.module-schedule-create[data-role="shadow"] .border-bottom {
+.module-schedule-create[data-role="Community"] .border-bottom {
   border-color: #ACB9C2;
 }
 
@@ -1116,11 +1116,11 @@ div[data-admin="false"] .team-info .toggle-rotation {
   margin-top: 10px;
 }
 
-.module-schedule[data-role="secondary"] .schedule-actions {
+.module-schedule[data-role="MOOPS2"] .schedule-actions {
   border-color: #E6E6FF;
 }
 
-.module-schedule[data-role="shadow"] .schedule-actions {
+.module-schedule[data-role="Community"] .schedule-actions {
   border-color: #ACB9C2;
 }
 
@@ -1144,15 +1144,15 @@ div[data-admin="false"] .team-info .toggle-rotation {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.module-schedule[data-role="primary"][data-highlighted="true"] .schedule-actions {
+.module-schedule[data-role="MOOPS1"][data-highlighted="true"] .schedule-actions {
   border-color: #EF7E37;
 }
 
-.module-schedule[data-role="secondary"][data-highlighted="true"] .schedule-actions {
+.module-schedule[data-role="MOOPS2"][data-highlighted="true"] .schedule-actions {
   border-color: #827BE9;
 }
 
-.module-schedule[data-role="shadow"][data-highlighted="true"] .schedule-actions {
+.module-schedule[data-role="Community"][data-highlighted="true"] .schedule-actions {
   border-color: #7A8B98;
 }
 
@@ -1792,12 +1792,12 @@ footer li:first-child {
   color: rgba(0,0,0,.55);
 }
 
-.badge[data-role="secondary"] {
+.badge[data-role="MOOPS2"] {
   background: #E6E6FF;
   color: #2C2B9D;
 }
 
-.badge[data-role="shadow"] {
+.badge[data-role="Community"] {
   background: #E1E9EE;
   color: #283E4A;
 }

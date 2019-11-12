@@ -938,7 +938,7 @@ var oncall = {
         escalatePlanSelect: '#escalate-plan',
         cardExtra: '.card-inner[data-collapsed]',
         cardExtraChevron: '.card-inner[data-collapsed] .svg-icon-chevron',
-        oncallNowDisplayRoles: ['primary', 'secondary', 'manager'],
+        oncallNowDisplayRoles: ['MOOPS1', 'MOOPS2', 'Community'],
         timezoneDisplay: '.timezone-display',
         teamName: null,
         teamData: null

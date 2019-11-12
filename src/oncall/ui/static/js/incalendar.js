@@ -24,9 +24,9 @@
           rowCount: 2,
           readOnly: false,
           roles: [
-            {'name': 'primary', 'display_order': 1},
-            {'name': 'secondary', 'display_order': 2},
-            {'name': 'vacation', 'display_order': 3}
+            {'name': 'MOOPS1', 'display_order': 1},
+            {'name': 'MOOPS2', 'display_order': 2},
+            {'name': 'Community', 'display_order': 3}
           ],
           roleOrder: {},
           startDate: moment(),
@@ -709,9 +709,9 @@
           pxHrRatio,
           evt,
           evtIndex = {
-            primary: 0,
-            secondary: 0,
-            vacation: 0
+            MOOPS1: 0,
+            MOOPS2: 0,
+            Community: 0
           },
           prevRowCount = self.rowSlots.length,
           maxRowCount = 1,
