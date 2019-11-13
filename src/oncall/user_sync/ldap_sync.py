@@ -92,9 +92,17 @@ def prune_user(engine, username):
 def fetch_ldap():
     ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
     l = ldap.initialize(LDAP_SETTINGS['url'])
+    l.set_option(ldap.OPT_REFERRALS, 0)
     if 'cert_path' in LDAP_SETTINGS:
         l.set_option(ldap.OPT_X_TLS_CACERTFILE, LDAP_SETTINGS['cert_path'])
-    l.simple_bind_s(LDAP_SETTINGS['user'], LDAP_SETTINGS['password'])
+
+    try:
+        l.simple_bind_s(LDAP_SETTINGS['user'], LDAP_SETTINGS['password'])
+    except ldap.INVALID_CREDENTIALS:
+        return False
+    except (ldap.SERVER_DOWN, ldap.INVALID_DN_SYNTAX) as err:
+        logger.warn("%s", err)
+        return None
 
     req_ctrl = SimplePagedResultsControl(True, size=1000, cookie='')
 
@@ -165,10 +173,13 @@ def fetch_ldap():
             c for c in serverctrls if c.controlType == SimplePagedResultsControl.controlType
         ]
 
-        cookie = pctrls[0].cookie
-        if not cookie:
+        if len(pctrls) > 0:
+            cookie = pctrls[0].cookie
+            if not cookie:
+                break
+            req_ctrl.cookie = cookie
+        else:
             break
-        req_ctrl.cookie = cookie
 
     return users
 
